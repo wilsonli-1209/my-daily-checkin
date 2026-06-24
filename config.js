@@ -1,2 +1,2 @@
-window.SUPABASE_URL = 'YOUR_SUPABASE_URL';
-window.SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+window.SUPABASE_URL = 'https://fykpmpbozwrqoejimrau.supabase.co/rest/v1/';
+window.SUPABASE_ANON_KEY = 'sb_publishable_p6FbAnDcx3yWFmwWRRpdKg_dLu1DagO';
