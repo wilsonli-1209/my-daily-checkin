@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>每日自律打卡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="auth-screen" id="authScreen">
+    <div class="auth-card">
+      <a class="brand auth-brand" href="#"><span class="brand-mark">✓</span><span>Daywell</span></a>
+      <p class="section-kicker">YOUR DAILY SPACE</p>
+      <h1>让每一天都有迹可循</h1>
+      <p class="auth-copy">登录后，你的打卡、备注和照片会在所有设备间保持同步。</p>
+      <form id="authForm">
+        <label>邮箱<input id="emailInput" type="email" autocomplete="email" placeholder="name@example.com" required></label>
+        <label>密码<input id="passwordInput" type="password" autocomplete="current-password" minlength="6" placeholder="至少 6 位" required></label>
+        <p class="auth-error" id="authError"></p>
+        <button class="save-btn" type="submit">登录</button>
+        <button class="auth-switch" id="signupBtn" type="button">还没有账号？创建账号</button>
+      </form>
+    </div>
+  </section>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">✓</span><span>Daywell</span></a>
+      <nav class="nav">
+        <button class="nav-item active"><span>▦</span> 每日打卡</button>
+        <button class="nav-item" id="historyBtn"><span>◷</span> 打卡历史</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="logout-btn" id="logoutBtn">退出登录</button>
+        <div class="quote">“小小的坚持，<br>终会汇成辽阔。”</div>
+        <p>把今天过得明亮一点。</p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div><p class="eyebrow">DAILY RHYTHM</p><h1>你好，今天也要闪闪发光 ✦</h1></div>
+        <button class="today-btn" id="todayBtn">回到今天</button>
+      </header>
+
+      <div class="layout">
+        <section class="calendar-card">
+          <div class="calendar-head">
+            <div><p class="section-kicker">选择日期</p><h2 id="monthLabel"></h2></div>
+            <div class="month-controls"><button id="prevMonth" aria-label="上个月">‹</button><button id="nextMonth" aria-label="下个月">›</button></div>
+          </div>
+          <div class="weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+          <div class="calendar-legend"><span><i class="dot complete"></i>已完成</span><span><i class="dot selected"></i>当前日期</span></div>
+        </section>
+
+        <section class="checkin-card">
+          <div class="date-heading"><div><p class="section-kicker">今日计划</p><h2 id="dateLabel"></h2></div><div class="progress-ring" id="progressRing"><span id="progressText">0%</span></div></div>
+          <div class="task-list" id="taskList"></div>
+          <div class="note-section">
+            <div class="note-title"><div><p class="section-kicker">每日备注</p><h3>记下今天的感受</h3></div><span id="saveStatus"></span></div>
+            <textarea id="noteInput" placeholder="今天有什么想记录的？"></textarea>
+            <div class="photo-area" id="photoArea">
+              <input type="file" id="photoInput" accept="image/*" multiple hidden>
+              <button class="upload-btn" id="uploadBtn" type="button"><span>＋</span> 上传照片</button>
+              <div class="photo-list" id="photoList"></div>
+            </div>
+          </div>
+          <button class="save-btn" id="saveBtn">保存今日记录 <span>→</span></button>
+        </section>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast">已保存今天的记录</div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
